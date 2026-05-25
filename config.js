@@ -11,7 +11,7 @@
 // 5. Copie o objeto firebaseConfig e cole abaixo
 // ============================================================
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAr94T2PQFPpp22WqDl-K9KuUuou32fSaY",
   authDomain: "casaconta-cd02a.firebaseapp.com",
   projectId: "casaconta-cd02a",
