@@ -1,0 +1,38 @@
+rules_version = '2';
+
+// ============================================================
+// Regras de segurança do Firestore para o Casa & Conta
+//
+// Lógica: qualquer usuário AUTENTICADO (logado com Google) pode
+// ler e escrever na coleção 'lancamentos'. Usuários não logados
+// não conseguem nada.
+//
+// Como aplicar:
+// 1. No console do Firebase, vá em Firestore Database → Rules
+// 2. Cole TODO o conteúdo deste arquivo lá
+// 3. Clique em "Publish"
+// ============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /lancamentos/{docId} {
+      // Qualquer pessoa logada pode ler todos os lançamentos
+      allow read: if request.auth != null;
+
+      // Qualquer pessoa logada pode criar lançamentos
+      // (e o registro DEVE ter o uid dela)
+      allow create: if request.auth != null
+                    && request.resource.data.criadoPor == request.auth.uid;
+
+      // Qualquer pessoa logada pode atualizar/deletar qualquer lançamento
+      // (lógica do casal: ambos têm controle total)
+      allow update, delete: if request.auth != null;
+    }
+
+    // Bloqueia tudo o mais
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
