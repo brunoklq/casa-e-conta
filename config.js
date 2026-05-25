@@ -11,14 +11,13 @@
 // 5. Copie o objeto firebaseConfig e cole abaixo
 // ============================================================
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAr94T2PQFPpp22WqDl-K9KuUuou32fSaY",
-  authDomain: "casaconta-cd02a.firebaseapp.com",
-  projectId: "casaconta-cd02a",
-  storageBucket: "casaconta-cd02a.firebasestorage.app",
-  messagingSenderId: "152089199010",
-  appId: "1:152089199010:web:75e861e231c5c16bef32fb",
-  measurementId: "G-7N9J7GP49G"
+export const firebaseConfig = {
+  apiKey: "COLE-SUA-API-KEY-AQUI",
+  authDomain: "seu-projeto.firebaseapp.com",
+  projectId: "seu-projeto",
+  storageBucket: "seu-projeto.appspot.com",
+  messagingSenderId: "000000000000",
+  appId: "1:000000000000:web:abc123"
 };
 
 // Não é necessário esconder essas chaves: elas são públicas por design.
